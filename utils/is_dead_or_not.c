@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/03 10:58:07 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:02:54 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@ void	check_if_dead(t_philo *philo)
 				>= philo[i].last_time_eat + philo.[i].vars->time_to_die)
 		{
 			philo[i].vars->dead = 1;
-			//i should print died and time of death !
+			ft_print("%ld %d died\n", (get_time() - philo[i].vars->start),
+					philo[i].id, &philo[i].vars->t_pen);
 			pthread_mutex_lock(&philo[i].vars->t_pen);
 			break ;
 		}
+		if (philo[i].vars->exit == philo[i].vars->number_of_philosophers)
+			break ;
+		i++;
+		if (philo[i].vars->number_of_philosophers == i)
+			i = 0;
+	}
 }
