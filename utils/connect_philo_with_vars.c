@@ -6,9 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/03/26 21:34:16 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/17 10:49:18 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <philo/philo.h>
 
 void	connect_philo_with_vars(t_philo *philo, t_vars *vars)
 {

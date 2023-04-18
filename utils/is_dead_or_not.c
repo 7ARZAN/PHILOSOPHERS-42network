@@ -6,9 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/03 11:02:54 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/17 10:47:43 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <philo/philo.h>
 
 void	check_if_dead(t_philo *philo)
 {
@@ -21,7 +23,8 @@ void	check_if_dead(t_philo *philo)
 				>= philo[i].last_time_eat + philo.[i].vars->time_to_die)
 		{
 			philo[i].vars->dead = 1;
-			ft_print("%ld %d died\n", (get_time() - philo[i].vars->start),
+			printf("\033[1;89m[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", 
+					(get_time() - philo[i].vars->start),
 					philo[i].id, &philo[i].vars->t_pen);
 			pthread_mutex_lock(&philo[i].vars->t_pen);
 			break ;

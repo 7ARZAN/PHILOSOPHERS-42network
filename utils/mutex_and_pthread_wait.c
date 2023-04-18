@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mutex.c                                            :+:      :+:    :+:   */
+/*   mutex_and_pthread_wait.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:04:24 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/03 11:57:05 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/18 11:18:44 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,16 @@ void	destroy_mutex(t_philo *philo)
 		i++;
 	}
 	free(philo);
+}
+
+void	pthread_wait(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo->vars->number_of_philosophers)
+	{
+		pthread_join(philo[i].t_id, NULL);
+		i++;
+	}
 }

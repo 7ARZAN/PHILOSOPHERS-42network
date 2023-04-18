@@ -6,9 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:35:09 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/03/26 21:50:29 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/18 11:06:16 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <philo/philo.h>
 
 int	ft_isdigit(int i)
 {
@@ -20,7 +22,7 @@ int	ft_isdigit(int i)
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	res;
+	long	res;
 	int	sign;
 
 	i = 0;
