@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/20 13:42:15 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/25 19:46:05 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,3 @@ int	philosopher_death(t_philo *philo)
 	}
 	return (0);
 }
-
-//functions needed
-//int routine
-//void *philo routine

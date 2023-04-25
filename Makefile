@@ -6,23 +6,22 @@
 #    By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 11:25:31 by 7arzan            #+#    #+#              #
-#    Updated: 2023/04/18 11:30:37 by 7arzan           ###   ########.fr        #
+#    Updated: 2023/04/25 19:53:00 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_COMMON = ./philo/utils/init.c\
-	     ./philo/utils/functions_needed.c\
-	     ./philo/utils/mutex_and_pthread_wait.c\
-	     ./philo/utils/connect_philo_with_vars.c\
-	     ./philo/utils/functions_needed.c\
-	     ./philo/utils/ft_print.c\
-	     ./philo/utils/get_time.c\
-	     ./philo/utils/is_dead_or_not.c\
-
+SRC_COMMON = ./src/actions.c\
+	     ./src/checker.c\
+	     ./src/create_mutex_and_thread.c\
+	     ./src/functions_needed.c\
+	     ./src/get_time.c\
+	     ./src/init.c\
+	     ./src/routine.c\
+	     ./philo.c\
 
 OBJ_COMMON = $(SRC_COMMON:.c=.o)
 
-INCLUDE = ./include
+INCLUDE = ./include/philo/philo.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -O3 -pthread
