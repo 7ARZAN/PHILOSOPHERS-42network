@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:51:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/18 11:29:33 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:15:25 by 7arzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,29 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct	s_vars{
-	int	number_of_philosophers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	number_of_times_each_philosopher_must_eat;
-	int	dead;
-	long	start;
-}	t_vars;
+typedef struct	s_philo
+{
+	int				id;
+	int				eat_count;
+	int				left_fork;
+	int				right_fork;
+	int				*forks;
+	int				*stop;
+	int				*eat;
+	int				*sleep;
+	int				*think;
+	int				*die;
+	int				*eat_count_max;
+	int				*eat_count_total;
+	pthread_mutex_t	*mutex;
+	pthread_mutex_t	*print;
+	pthread_mutex_t	*fork;
+	struct timeval	start;
+	struct timeval	end;
+}				t_philo;
 
-typedef struct	s_philo{
-	pthread_t	t_id;
-	pthread_mutex_t fork;
-	pthread_mutex_t *next_fork;
-	t_vars		*vars;
-	int		id;
-	long		last_meal;
-	int		meals;
-}	t_philo;
+int				ft_atoi(const char *str);
+int				ft_isdigit(int c);
 
-void		connect_philo_with_vars(t_philo *philo, t_vars *vars);
-void		ft_print(char *str, long time, int id, pthread_mutex_t *pen);
-long		get_time(void);
-void		pthread_wait(t_philo *philo);
-void		is_dead(t_philo *philo);
-int		ft_atoi(const char *str);
-int		ft_isdigit(int c);
-void		init_mutex(t_philo *philo);
-void		destroy_mutex(t_philo *philo);
-void 		pthread_wait(t_philo *philo);
-static int 	init_arguments(char **av, t_vars *vars);
-static int 	check_parameters(t_vars *vars);
-char 		*init(int ac, char **av, t_vars *vars);
 
 #endif
