@@ -6,22 +6,22 @@
 #    By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 11:25:31 by 7arzan            #+#    #+#              #
-#    Updated: 2023/04/25 19:53:00 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/04/25 21:43:15 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_COMMON = ./src/actions.c\
-	     ./src/checker.c\
-	     ./src/create_mutex_and_thread.c\
-	     ./src/functions_needed.c\
-	     ./src/get_time.c\
-	     ./src/init.c\
-	     ./src/routine.c\
-	     ./philo.c\
+SRC_COMMON = ./src/utils/actions.c\
+	     ./src/utils/checker.c\
+	     ./src/utils/create_mutex_and_thread.c\
+	     ./src/utils/functions_needed.c\
+	     ./src/utils/get_time.c\
+	     ./src/utils/init.c\
+	     ./src/utils/routine.c\
+	     ./src/utils/philo.c\
 
 OBJ_COMMON = $(SRC_COMMON:.c=.o)
 
-INCLUDE = ./include/philo/philo.h
+INCLUDE = ./src/include
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -O3 -pthread

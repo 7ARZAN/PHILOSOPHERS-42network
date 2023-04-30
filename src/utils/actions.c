@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/25 19:52:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/04/25 21:45:01 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	status(char *str, t_philo *data, int i)
 
 	pthread_mutex_lock(&data->mutex_write);
 	time = get_time() - data->start_time;
-	if (i < data->number_of_philosophers && check_eat(data) == 0 && data->stat == 0)
+	if (i < data->number_of_philosophers && check_meals(data) == 0 && data->stat == 0)
 		printf("\033[1;89m[%ld]	[%d] \033[0;39m%s", time, i, str);
 	pthread_mutex_unlock(&data->mutex_write);
 }
