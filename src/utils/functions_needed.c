@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:35:09 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/18 11:06:16 by 7arzan           ###   ########.fr       */
+/*   Updated: 2023/05/18 02:11:22 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo/philo.h>
+#include <philo.h>
 
 int	ft_isdigit(int i)
 {

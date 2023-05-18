@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/04/25 19:46:05 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/18 02:11:59 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo/philo.h>
+#include <philo.h>
 
 //philosopher_death function checks if any of the philosophers has died
 //if so, it prints the time and the philosopher number and returns 1
