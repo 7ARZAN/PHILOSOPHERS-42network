@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:12:56 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:22:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "../include/philo.h"
 
 int	check_arguments(char *args, int position, t_philo *data)
 {

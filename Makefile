@@ -6,7 +6,7 @@
 #    By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 11:25:31 by 7arzan            #+#    #+#              #
-#    Updated: 2023/04/25 21:43:15 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/05/18 02:10:10 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_COMMON = ./src/utils/actions.c\
 	     ./src/utils/init.c\
 	     ./src/utils/routine.c\
 	     ./src/utils/philo.c\
+	     ./src/main.c\
 
 OBJ_COMMON = $(SRC_COMMON:.c=.o)
 

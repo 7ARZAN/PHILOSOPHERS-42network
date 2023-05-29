@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:07:51 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:11:30 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:05:47 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "../include/philo.h"
 
 //get_time function 
 //return time in milliseconds

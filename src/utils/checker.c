@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:11:05 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:06:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "../include/philo.h"
 
 //check if all philo eat or not
 //if all philo eat return 1 else return 0

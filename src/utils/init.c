@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:14:07 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:12:19 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:05:38 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "../include/philo.h"
 
 //init function to initialize the data structure and the mutexes and threads and the philos and the forks
 //the function returns 0 if everything is ok and -1 if there is an error in the malloc or in the mutex init

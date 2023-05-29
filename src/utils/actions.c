@@ -6,15 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:16:17 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 21:11:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <pthread.h>
+#include "../src/include/philo.h"
 
 //status function to print the status of the philo and the time of the status change 
 void	status(char *str, t_philo *data, int i)

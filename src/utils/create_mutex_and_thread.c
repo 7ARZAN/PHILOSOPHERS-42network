@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:04:24 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/18 02:11:14 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:05:58 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "../include/philo.h"
 
 //create mutex for each philo and for the data
 int	create_mutex(t_philo *philo)
