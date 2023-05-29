@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/28 20:05:21 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:47:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,21 @@
 //if so, it prints the time and the philosopher number and returns 1
 //if not, it returns 0
 
-int	philosopher_death(t_philo *philo)
+int	philosopher_death(t_data *data)
 {
 	int	i;
 	long	time;
 
-	i = 0;
-	while (i < philo->vars->num_of_philo)
+	i = -1;
+	while (++i < data->number_of_philosophers)
 	{
-		time = get_time() - philo[i].last_eat;
-		if (time > philo->vars->time_to_die)
+		time = get_time() - data->start_time;
+		if (time - data->philo[i].last_meal > data->time_to_die)
 		{
 			pthread_mutex_lock(&philo->vars->print);	
 			printf("[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", time, i + 1);
 			return (1);
 		}
-		i++;
 	}
 	return (0);
 }

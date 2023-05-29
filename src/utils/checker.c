@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/28 20:06:04 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:42:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //check if all philo eat or not
 //if all philo eat return 1 else return 0
-int	check_meals(t_philo *data)
+int	check_meals(t_data *data)
 {
 	int	i;
 	int	count;
@@ -25,7 +25,7 @@ int	check_meals(t_philo *data)
 		return (0);
 	while (++i < data->number_of_philosophers)
 	{
-		if (data->philo_eat[i] == 1)
+		if (data->philo[i].meals == data->number_of_times_each_philosopher_must_eat)
 			count++;
 		else
 			break ;
@@ -43,12 +43,12 @@ static void	print_dead(long time, int i)
 
 //cleaner function to free all mutex and threads !
 //if there is only one philo we use pthread_detach to free the thread !
-void	cleaner(t_philo *data)
+void	cleaner(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	while (++i < data->number_of_philosophers)
+	while (++i <= data->number_of_philosophers)
 		pthread_mutex_destroy(&data->mutex[i]);
 	i = 0;
 	if (data->number_of_philosophers == 1)
@@ -63,7 +63,7 @@ void	cleaner(t_philo *data)
 //main checker function to check if all philo eat or not !
 //if all philo eat we free all mutex and threads !
 //if one philo die we print dead message and free all mutex and threads !
-void	main_checker(t_philo *data)
+void	main_checker(t_data *data)
 {
 	int	i;
 

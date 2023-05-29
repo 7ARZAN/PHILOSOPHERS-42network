@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/28 20:22:27 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:48:29 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_arguments(char *args, int position, t_philo *data)
 	}
 }
 
-int	simulation(t_philo *data)
+int	simulation(t_data *data)
 {
 	pthread_mutex_init(&data->mutex_last_meal, NULL);
 	pthread_mutex_init(&data->mutex_stat, NULL);

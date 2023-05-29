@@ -6,14 +6,14 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 01:52:56 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:26:02 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/include/philo.h"
 
 //status function to print the status of the philo and the time of the status change 
-void	status(char *str, t_philo *data, int i)
+void	status(char *str, t_data *data, int i)
 {
 	long	time;
 
@@ -26,7 +26,7 @@ void	status(char *str, t_philo *data, int i)
 
 //take forks function to take the forks and print the status of the philo
 //if the number of philo is 1 then the philo will die after the time to die
-void	take_forks(t_philo *data, int i)
+void	take_forks(t_data *data, int i)
 {
 	pthread_mutex_lock(&data->mutex[data->philo[i].fork_right]);
 	status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", data, i + 1);
@@ -38,10 +38,10 @@ void	take_forks(t_philo *data, int i)
 
 //eat function to eat and print the status of the philo and unlock the forks after eating
 //if the number of philo is 1 then the philo will die after the time to die
-void	eat(t_philo *data, int i)
+void	eat(t_data *data, int i)
 {
 	status("\033[1;93mis eating 🍝\033[0;39m\n", data, i + 1);
-	data->philo[i].last_eat = get_time();
+	data->philo[i].num_of_meals++;
 	mssleep(data->time_to_eat);
 	data->eat_count[i]++;
 	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_right]);
@@ -50,7 +50,7 @@ void	eat(t_philo *data, int i)
 
 //sleeping_thinking function to sleep and print the status of the philo and think after sleeping
 //if the number of philo is 1 then the philo will die after the time to die
-void 	sleeping_thinking(t_philo *data, int i)
+void 	sleeping_thinking(t_data *data, int i)
 {
 	status("\033[1;94mis sleeping 💤\033[0;39m\n", data, i + 1);
 	mssleep(data->time_to_sleep);

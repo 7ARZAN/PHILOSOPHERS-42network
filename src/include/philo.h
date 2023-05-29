@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:51:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 01:51:56 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:17:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,24 @@
 # include <limits.h>
 # include <unistd.h>
 
-typedef struct s_philo{
-    int                fork_left;
-    int                fork_right;
+typedef struct s_philo
+{
+	int		num_of_meals;
+	int		last_meal;
+	int		fork_left;
+	int		fork_right;
+	struct t_data	*data;
 }    t_philo;
+
+typedef struct s_data
+{
+	int		number_of_philosophers;
+	int		time_to_die;
+	int		time_to_eat;
+	int		time_to_sleep;
+	int		dead;
+
+}    t_data;
 
 
 void	status(char *str, t_philo *data, int i);
