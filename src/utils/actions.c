@@ -6,11 +6,11 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 18:26:02 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:26:46 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/include/philo.h"
+#include "../include/philo.h"
 
 //status function to print the status of the philo and the time of the status change 
 void	status(char *str, t_data *data, int i)
@@ -45,7 +45,7 @@ void	eat(t_data *data, int i)
 	mssleep(data->time_to_eat);
 	data->eat_count[i]++;
 	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_right]);
-	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_left])
+	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_left]);
 }
 
 //sleeping_thinking function to sleep and print the status of the philo and think after sleeping

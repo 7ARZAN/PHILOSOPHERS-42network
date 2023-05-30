@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 18:48:29 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:30:35 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	simulation(t_data *data)
 	data->start_time = get_time();
 	if (create_thread(data) == -1)
 		return (-1);
-	data->init = 1;
-	checker(data);
+	data->init_philo = 1;
+	main_checker(data);
 	return (0);
 }
 

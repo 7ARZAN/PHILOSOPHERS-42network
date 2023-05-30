@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:14:07 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 18:33:44 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:28:52 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	init(t_data *data)
 	{
 		data->philo[i].meals = 0;
 		data->philo[i].fork_right = i - 1;
-		data->philo[i].forks_left = i;
+		data->philo[i].fork_left = i;
 	}
 	data->philo[0].fork_right = data->number_of_philosophers - 1;
 	return (0);
