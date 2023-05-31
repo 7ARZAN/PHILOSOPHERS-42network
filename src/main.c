@@ -6,11 +6,11 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 02:08:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/05/29 18:19:52 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:32:41 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "./include/philo.h"
 
 int	main(int ac, char **av)
 {
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		return (-1);
 	if (check_arguments(av[4], 4, data) == -1)
 		return (-1);
-	if (argc == 6)
+	if (ac == 6)
 	{
 		if (check_arguments(av[5], 5, data) == -1)
 			return (-1);

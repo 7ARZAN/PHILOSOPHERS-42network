@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/30 19:26:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:19:43 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	eat(t_data *data, int i)
 	status("\033[1;93mis eating 🍝\033[0;39m\n", data, i + 1);
 	data->philo[i].num_of_meals++;
 	mssleep(data->time_to_eat);
-	data->eat_count[i]++;
 	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_right]);
 	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_left]);
 }

@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/29 18:42:27 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:38:20 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_meals(t_data *data)
 		return (0);
 	while (++i < data->number_of_philosophers)
 	{
-		if (data->philo[i].meals == data->number_of_times_each_philosopher_must_eat)
+		if (data->time_to_eat == 0)
 			count++;
 		else
 			break ;
@@ -36,7 +36,7 @@ int	check_meals(t_data *data)
 }
 
 //print dead message !
-static void	print_dead(long time, int i)
+void	print_dead(long time, int i)
 {
 	printf("\033[1;89m[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", time, i);
 }
@@ -70,11 +70,11 @@ void	main_checker(t_data *data)
 	i = -1;
 	while (++i < data->number_of_philosophers)
 	{
-		if (data->philo_eat[i] == 1)
+		if (data->time_to_eat == 0) //maybe = -1;
 			continue ;
-		if (data->philo_eat[i] == 0 && data->philo_die[i] == 1)
+		if (data->time_to_die < get_time() - data->philo[i].last_meal)
 		{
-			print_dead(data->time, i + 1);
+			print_dead(data->start_time, i + 1);
 			cleaner(data);
 			break ;
 		}

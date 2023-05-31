@@ -6,13 +6,13 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/30 19:30:35 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:52:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-int	check_arguments(char *args, int position, t_philo *data)
+int	check_arguments(char *args, int position, t_data *data)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ int	check_arguments(char *args, int position, t_philo *data)
 		else if (position == 4)
 			data->time_to_sleep = i;
 		else if (position == 5)
-			data->number_of_times_each_philosopher_must_eat = i;
+			data->philo_eat = i;
 		return (i);
 	}
 }
@@ -46,7 +46,7 @@ int	simulation(t_data *data)
 	pthread_mutex_init(&data->mutex_stat, NULL);
 	data->stat = 0;
 	data->id = 1;
-	if (init_philo(data) == -1)
+	if (init(data) == -1)
 		return (-1);
 	if (create_mutex(data) == -1)
 		return (-1);
