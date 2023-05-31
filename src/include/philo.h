@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:51:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/31 19:30:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:17:43 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,49 +23,53 @@
 
 typedef struct s_philo
 {
-	int				num_eats;
-	long			last_eat;
-	int				fork_l;
-	int				fork_r;
-	struct s_list	*d;
+	int		number_of_meals;
+	long		last_meal;
+	int		fork_left;
+	int		fork_right;
+	struct s_data	*data;
 }	t_philo;
 
-typedef struct s_list
+typedef struct s_data
 {
-	int				init_philo;
-	int				stat;
-	int				id;
-	int				num_philos;
-	int				time_die;
-	int				time_eat;
-	int				time_sleep;
-	int				time_think;
-	int				philo_eats;
-	t_philo			*philo;
-	pthread_t		*thread;
+	int		init;
+	int		stat;
+	int		id;
+	int		number_of_philosophers;
+	int		time_to_die;
+	int		time_to_eat;
+	int		time_to_sleep;
+	int		time_to_think;
+	int		philo_eats;
+	t_philo		*philo;
+	pthread_t	*thread;
 	pthread_mutex_t	*mutex;
-	pthread_mutex_t	mutex_last_eat;
+	pthread_mutex_t	mutex_last_meal;
 	pthread_mutex_t	mutex_stat;
-	pthread_mutex_t	mutex_i;
-	pthread_mutex_t	mutex_msg;
+	pthread_mutex_t	mutex_id;
+	pthread_mutex_t	mutex_write;
 	pthread_mutex_t	mutex_fork;
 	long			s_time;
-}	t_list;
+}	t_data;
 
-int		death_philo(t_list *d);
-int		main(int argc, char **argv);
-int		ft_atoi(const char *str);
-int		check_eats(t_list *d);
-int		create_thread(t_list *d);
-int		create_mutex(t_list *d);
-int		init_values(t_list *d);
-long	calc_time(void);
-void	w_status(char *s, t_list *d, int i);
-void	ft_take_fork(t_list *d, int i);
-void	ft_eat(t_list *d, int i);
-void	ft_sleep(t_list *d, int i);
-void	ft_usleep(int condition);
-void	main_checker(t_list *d);
+int	death(t_data *data);
+int	main(int argc, char **argv);
+int	ft_atoi(const char *str);
+int	check_meals(t_data *data);
+int	create_thread(t_data *data);
+int	create_mutex(t_data *data);
+int	init(t_data *data);
+long	get_time(void);
+void	status(char *msg, t_data *data, int i);
+void	take_fork(t_data *data, int i);
+void	eat(t_data *data, int i);
+void	ft_sleep(t_data *data, int i);
+void	mssleep(int condition);
+void	checker(t_data *data);
 void	*philo_routine(void *f);
+void	cleaner(t_data *data);
+void	print_die(long time, int id);
+int	check_number_of_args(char *args, int pos, t_data *data);
+int	simulation(t_data *data);
 
 #endif

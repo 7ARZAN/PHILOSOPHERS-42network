@@ -6,33 +6,33 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 02:08:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/05/31 19:29:51 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:15:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/philo.h"
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	int		i;
-	t_list	*d;
+	t_data	*data;
 
-	if (argc != 5 && argc != 6)
+	if (ac != 5 && ac != 6)
 	{
 		write(1, "Invalid number of Arguments\n", 28);
 		return (0);
 	}
 	i = 1;
-	d = malloc(sizeof(t_list));
-	if (!d)
+	data = malloc(sizeof(t_data));
+	if (!data)
 		return (0);
-	while (i != argc)
+	while (i != ac)
 	{
-		if (check_num_arg(argv[i], i, d) < 0)
+		if (check_number_of_args(av[i], i, data) < 0)
 			return (0);
 		i++;
 	}
-	if (start_simulation(d) != 0)
+	if (simulation(data) != 0)
 		return (-1);
 	return (0);
 }
