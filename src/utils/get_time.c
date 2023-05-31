@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:07:51 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/28 20:05:47 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:20:02 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 long	get_time(void)
 {
 	struct timeval	time;
+	int		ret;
 
-	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1000 + time.tv_sec / 1000);
+	ret = gettimeofday(&time, NULL);
+	if (ret == -1)
+		return (-1);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
 //mssleep function
@@ -30,5 +33,5 @@ void	mssleep(int time)
 
 	start = get_time();
 	while (get_time() - start < time)
-		usleep(time / 2);
+		usleep(100);
 }

@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/31 23:17:57 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:17:41 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	status(char *msg, t_data *data, int i)
 	pthread_mutex_lock(&data->mutex_write);
 	time = get_time() - data->s_time;
 	if (i <= data->number_of_philosophers && check_meals(data) == 0 && data->stat == 0)
-	{
 		printf("\033[1;89m[%ld]	[%d] \033[0;39m%s", time, i, msg);
-	}
 	pthread_mutex_unlock(&data->mutex_write);
 }
 
@@ -30,7 +28,7 @@ void	take_fork(t_data *data, int i)
 	pthread_mutex_lock(&data->mutex[data->philo[i].fork_right]);
 	status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", data, i + 1);
 	if (data->number_of_philosophers == 1)
-		mssleep(data->time_to_die + 1);
+		mssleep(data->time_to_die);
 	pthread_mutex_lock(&data->mutex[data->philo[i].fork_left]);
 	status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", data, i + 1);
 }

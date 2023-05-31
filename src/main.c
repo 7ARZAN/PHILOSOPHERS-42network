@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 02:08:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/05/31 23:15:51 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:04:08 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	if (ac != 5 && ac != 6)
 	{
-		write(1, "Invalid number of Arguments\n", 28);
+		write(1, "\033[0;101mError: Wrong number of arguments\033[0m\n", 48);
 		return (0);
 	}
 	i = 1;

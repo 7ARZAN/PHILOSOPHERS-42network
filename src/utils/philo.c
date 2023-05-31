@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/31 23:18:19 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:23:25 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	check_number_of_args(char *args, int pos, t_data *data)
 		|| (pos == 3 && nofp < 60) || (pos == 4 && nofp < 60))
 	{
 		free(data);
-		write(1, "Error: Invalid argument\n", 24);
+		write(1, "\033[0;101mError: Invalid Arguments\033[0m\n", 39);
+
 		return (-1);
 	}
 	else

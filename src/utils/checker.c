@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/31 23:18:06 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:34:07 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void	checker(t_data *data)
 		while (++i < data->number_of_philosophers)
 		{
 			time = get_time() - data->s_time;
-			if (time - data->philo[i].last_meal > data->time_to_die || check_meals(data) == 1)
+			if (time - data->philo[i].last_meal > data->time_to_die)
 			{
 				if (data->stat == 2)
 					break ;
 				data->stat = 1;
 				print_die(time, i + 1);
-				break ;
+				exit(1); //exit(1) is used to exit the program not sure yet about it
 			}
 		}
 		i = -1;

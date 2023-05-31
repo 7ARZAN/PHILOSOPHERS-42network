@@ -6,7 +6,7 @@
 #    By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 11:25:31 by 7arzan            #+#    #+#              #
-#    Updated: 2023/05/18 02:10:10 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/06/01 00:39:54 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ_COMMON = $(SRC_COMMON:.c=.o)
 INCLUDE = ./src/include
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -pthread
+CFLAGS = -Wall -Wextra -Werror -O3 -fsanitize=thread
 
 NAME = philo
 
