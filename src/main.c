@@ -6,40 +6,33 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 02:08:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/05/30 20:32:41 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/31 19:29:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/philo.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	t_data	*data;
+	int		i;
+	t_list	*d;
 
-	if (ac < 5 || ac > 6)
+	if (argc != 5 && argc != 6)
 	{
-		printf("Error: Invalid number of arguments\n");
-		return (-1);
+		write(1, "Invalid number of Arguments\n", 28);
+		return (0);
 	}
-	data = malloc(sizeof(t_data));
-	if (!data)
-		return (-1);
-	if (check_arguments(av[1], 1, data) == -1)
-		return (-1);
-	if (check_arguments(av[2], 2, data) == -1)
-		return (-1);
-	if (check_arguments(av[3], 3, data) == -1)
-		return (-1);
-	if (check_arguments(av[4], 4, data) == -1)
-		return (-1);
-	if (ac == 6)
+	i = 1;
+	d = malloc(sizeof(t_list));
+	if (!d)
+		return (0);
+	while (i != argc)
 	{
-		if (check_arguments(av[5], 5, data) == -1)
-			return (-1);
+		if (check_num_arg(argv[i], i, d) < 0)
+			return (0);
+		i++;
 	}
-	else
-		data->number_of_times_each_philosopher_must_eat = -1;
-	if (simulation(data) == -1)
+	if (start_simulation(d) != 0)
 		return (-1);
 	return (0);
 }

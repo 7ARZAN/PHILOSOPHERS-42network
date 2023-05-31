@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/30 21:42:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/31 19:27:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,61 @@
 //if so, it prints the time and the philosopher number and returns 1
 //if not, it returns 0
 
-int	philosopher_death(t_data *data)
+int	death_philo(t_list *d)
 {
-	int	i;
+	int		c;
 	long	time;
 
-	i = -1;
-	while (++i < data->number_of_philosophers)
+	c = -1;
+	while (++c < d->num_philos)
 	{
-		time = get_time() - data->start_time;
-		if (time - data->philo[i].last_meal > data->time_to_die)
+		time = calc_time() - d->s_time;
+		if (time - d->philo[c].last_eat > d->time_die)
 		{
-			pthread_mutex_lock(&data->mutex_write);
-			printf("[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", time, i + 1);
+			if (d->stat == 0)
+			{
+				d->stat = 1;
+				printf("[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", time, c + 1);
+			}
 			return (1);
 		}
 	}
 	return (0);
 }
 
-int	routine(t_data *data)
+int	routine(t_list *d)
 {
 	int	i;
 
-	pthread_mutex_lock(&((t_data *)data)->mutex_i);
-	i = data->id - 1;
-	data->id++;
-	pthread_mutex_unlock(&((t_data *)data)->mutex_i);
+	pthread_mutex_lock(&((t_list *)d)->mutex_i);
+	i = d->id - 1;
+	d->id++;
+	pthread_mutex_unlock(&((t_list *)d)->mutex_i);
 	if (i % 2 == 0)
-		mssleep(data->time_to_eat / 2);
-	while (data->stat == 0 && philosopher_death(data) == 0)
+		ft_usleep(d->time_eat / 2);
+	while (d->stat == 0 || death_philo(d) == 0)
 	{
-		pthread_mutex_lock(&((t_data *)data)->mutex_forks);
-		take_forks((t_data *)data, i);
-		pthread_mutex_unlock(&((t_data *)data)->mutex_forks);
-		eat((t_data *)data, i);
-		mssleep(data->time_to_sleep);
-		if (data->number_of_philosophers % 2 != 0)
-			mssleep(data->time_to_sleep / 3);
+		pthread_mutex_lock(&((t_list *)d)->mutex_fork);
+		ft_take_fork((t_list *)d, i);
+		pthread_mutex_unlock(&((t_list *)d)->mutex_fork);
+		ft_eat((t_list *)d, i);
+		ft_sleep((t_list *)d, i);
+		if (d->num_philos % 2 != 0)
+			ft_usleep(d->time_sleep / 3);
 	}
 	return (0);
 }
 
 void	*philo_routine(void *f)
 {
-	t_data	*data;
+	t_list	*d;
 
-	data = (t_data *)f;
-	while (data->init_philo == 0)
+	d = (t_list *)f;
+	while (d->init_philo == 0)
 	{
 		usleep(10);
 	}
-	if (routine(data) == -1)
+	if (routine(d) == -1)
 		return (NULL);
 	return (NULL);
 }

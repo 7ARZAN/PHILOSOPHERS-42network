@@ -6,52 +6,50 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/30 21:19:43 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/05/31 19:21:47 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-//status function to print the status of the philo and the time of the status change 
-void	status(char *str, t_data *data, int i)
+void	w_status(char *s, t_list *d, int i)
 {
 	long	time;
 
-	pthread_mutex_lock(&data->mutex_write);
-	time = get_time() - data->start_time;
-	if (i < data->number_of_philosophers && check_meals(data) == 0 && data->stat == 0)
-		printf("\033[1;89m[%ld]	[%d] \033[0;39m%s", time, i, str);
-	pthread_mutex_unlock(&data->mutex_write);
+	pthread_mutex_lock(&d->mutex_msg);
+	time = calc_time() - d->s_time;
+	if (i <= d->num_philos && check_eats(d) == 0 && d->stat == 0)
+	{
+		printf("\033[1;89m[%ld]	[%d] \033[0;39m%s", time, i, s);
+	}
+	pthread_mutex_unlock(&d->mutex_msg);
 }
 
-//take forks function to take the forks and print the status of the philo
-//if the number of philo is 1 then the philo will die after the time to die
-void	take_forks(t_data *data, int i)
+void	ft_take_fork(t_list *d, int i)
 {
-	pthread_mutex_lock(&data->mutex[data->philo[i].fork_right]);
-	status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", data, i + 1);
-	if (data->number_of_philosophers == 1)
-		mssleep(data->time_to_die + 1);
-	pthread_mutex_lock(&data->mutex[data->philo[i].fork_left]);
-	status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", data, i + 1);
+	pthread_mutex_lock(&d->mutex[d->philo[i].fork_r]);
+	w_status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", d, i + 1);
+	if (d->num_philos == 1)
+		ft_usleep(d->time_die + 1);
+	pthread_mutex_lock(&d->mutex[d->philo[i].fork_l]);
+	w_status("\033[1;92mhas taken a fork 🍴\033[0;39m\n", d, i + 1);
 }
 
-//eat function to eat and print the status of the philo and unlock the forks after eating
-//if the number of philo is 1 then the philo will die after the time to die
-void	eat(t_data *data, int i)
+void	ft_eat(t_list *d, int i)
 {
-	status("\033[1;93mis eating 🍝\033[0;39m\n", data, i + 1);
-	data->philo[i].num_of_meals++;
-	mssleep(data->time_to_eat);
-	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_right]);
-	pthread_mutex_unlock(&data->mutex[data->philo[i].fork_left]);
+	w_status("\033[1;94mis eating 🍝\033[0;39m\n", d, i + 1);
+	d->philo[i].num_eats++;
+	ft_usleep(d->time_eat);
+	pthread_mutex_unlock(&d->mutex[d->philo[i].fork_l]);
+	pthread_mutex_unlock(&d->mutex[d->philo[i].fork_r]);
+	pthread_mutex_lock(&d->mutex_last_eat);
+	d->philo[i].last_eat = calc_time() - d->s_time;
+	pthread_mutex_unlock(&d->mutex_last_eat);
 }
 
-//sleeping_thinking function to sleep and print the status of the philo and think after sleeping
-//if the number of philo is 1 then the philo will die after the time to die
-void 	sleeping_thinking(t_data *data, int i)
+void	ft_sleep(t_list *d, int i)
 {
-	status("\033[1;94mis sleeping 💤\033[0;39m\n", data, i + 1);
-	mssleep(data->time_to_sleep);
-	status("\033[1;95mis thinking 🤔\033[0;39m\n", data, i + 1);
+	w_status("\033[1;89mis sleeping 💤\033[0;39m\n", d, i + 1);
+	ft_usleep(d->time_sleep);
+	w_status("\033[1;91mis thinking 🤔\033[0;39m\n", d, i + 1);
 }
