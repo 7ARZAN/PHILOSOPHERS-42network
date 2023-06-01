@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 00:17:41 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:48:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void	ft_sleep(t_data *data, int i)
 	status("\033[1;89mis sleeping 💤\033[0;39m\n", data, i + 1);
 	mssleep(data->time_to_sleep);
 	status("\033[1;91mis thinking 🤔\033[0;39m\n", data, i + 1);
+	mssleep(data->time_to_think);
 }

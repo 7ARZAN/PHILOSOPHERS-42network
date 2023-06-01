@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 00:34:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:45:00 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	check_meals(t_data *data)
 	{
 		if (data->philo[i].number_of_meals >= data->philo_eats)
 			j++;
-		else
-			break ;
+		break ;
 	}
 	if (j >= data->number_of_philosophers)
 	{
@@ -74,10 +73,14 @@ void	checker(t_data *data)
 				if (data->stat == 2)
 					break ;
 				data->stat = 1;
+				pthread_mutex_lock(&data->mutex[i + 1]);
 				print_die(time, i + 1);
-				exit(1); //exit(1) is used to exit the program not sure yet about it
+				pthread_mutex_unlock(&data->mutex[i + 1]);
+				break ;
 			}
 		}
+		if (data->stat == 1 || data->stat == 2)
+			break ;
 		i = -1;
 	}
 	cleaner(data);

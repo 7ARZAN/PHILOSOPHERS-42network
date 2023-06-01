@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 02:08:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/06/01 00:04:08 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:30:17 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 			return (0);
 		i++;
 	}
-	if (simulation(data) != 0)
+	if (simulation(data) <= 0)
 		return (-1);
 	return (0);
 }

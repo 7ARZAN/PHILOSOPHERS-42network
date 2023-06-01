@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 00:23:25 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:34:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	check_number_of_args(char *args, int pos, t_data *data)
 
 int	simulation(t_data *data)
 {
+	int	i;
+
+	i = 0;
+	pthread_mutex_lock(&data->mutex_last_meal);
+	pthread_mutex_lock(&data->mutex_stat);
 	pthread_mutex_init(&data->mutex_last_meal, NULL);
 	pthread_mutex_init(&data->mutex_stat, NULL);
 	data->stat = 0;
@@ -56,5 +61,7 @@ int	simulation(t_data *data)
 		return (-1);
 	data->init = 1;
 	checker(data);
+	pthread_mutex_destroy(&data->mutex_last_meal);
+	pthread_mutex_destroy(&data->mutex_stat);
 	return (0);
 }

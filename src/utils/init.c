@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:14:07 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 00:21:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:58:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	init(t_data *data)
 	i = -1;
 	while (++i < data->number_of_philosophers)
 	{
+		pthread_mutex_init(&data->mutex[i], NULL);
 		data->philo[i].number_of_meals = 0;
 		data->philo[i].fork_right = i - 1;
 		data->philo[i].fork_left = i;

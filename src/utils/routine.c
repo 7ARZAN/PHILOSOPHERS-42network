@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 00:32:34 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:57:19 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	routine(t_data *data)
 		eat((t_data *)data, i);
 		ft_sleep((t_data *)data, i);
 		if (data->number_of_philosophers % 2 != 0)
-			mssleep(data->time_to_sleep / 3);
+			mssleep(data->time_to_eat / 2);
 	}
 	return (0);
 }
@@ -62,9 +62,6 @@ void	*philo_routine(void *f)
 	t_data	*data;
 
 	data = (t_data *)f;
-	while (data->init == 0)
-		usleep(10);
-	if (routine(data) == -1)
-		return (NULL);
+	routine(data);
 	return (NULL);
 }
