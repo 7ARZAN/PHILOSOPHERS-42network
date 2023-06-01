@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 01:45:00 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:22:37 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	checker(t_data *data)
 		while (++i < data->number_of_philosophers)
 		{
 			time = get_time() - data->s_time;
+			pthread_mutex_lock(&data->mutex_last_meal);
 			if (time - data->philo[i].last_meal > data->time_to_die)
 			{
 				if (data->stat == 2)
@@ -78,8 +79,9 @@ void	checker(t_data *data)
 				pthread_mutex_unlock(&data->mutex[i + 1]);
 				break ;
 			}
+			pthread_mutex_unlock(&data->mutex_last_meal);
 		}
-		if (data->stat == 1 || data->stat == 2)
+		if (data->stat == 1 || data->stat == 2) 
 			break ;
 		i = -1;
 	}

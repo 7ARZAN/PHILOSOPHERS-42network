@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:51:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/31 23:17:43 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:19:53 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_data
 }	t_data;
 
 int	death(t_data *data);
-int	main(int argc, char **argv);
+int	main(int ac, char **av);
 int	ft_atoi(const char *str);
 int	check_meals(t_data *data);
 int	create_thread(t_data *data);
