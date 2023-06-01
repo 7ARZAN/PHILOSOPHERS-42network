@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 22:22:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:26:53 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ void	checker(t_data *data)
 				if (data->stat == 2)
 					break ;
 				data->stat = 1;
-				pthread_mutex_lock(&data->mutex[i + 1]);
 				print_die(time, i + 1);
-				pthread_mutex_unlock(&data->mutex[i + 1]);
 				break ;
 			}
 			pthread_mutex_unlock(&data->mutex_last_meal);
