@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:04:24 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 01:44:13 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/04 04:43:39 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	create_thread(t_data *data)
 		pthread_mutex_lock(&data->mutex_last_meal);
 		data->philo[i].last_meal = 0;
 		pthread_mutex_unlock(&data->mutex_last_meal);
-		if (pthread_create(&data->thread[i], NULL, &philo_routine, (void *)data) != 0)
+		if (pthread_create(&data->thread[i], NULL,
+				&philo_routine, (void *)data) != 0)
 			return (-1);
 	}
 	return (0);

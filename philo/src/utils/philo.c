@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 01:34:11 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/04 05:00:14 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_number_of_args(char *args, int pos, t_data *data)
 {
-	int	nofp; 
+	int	nofp;
 
 	nofp = ft_atoi(args);
 	if (!nofp || nofp < 0 || (pos == 1 && nofp > 200) || (pos == 2 && nofp < 60)
@@ -22,7 +22,6 @@ int	check_number_of_args(char *args, int pos, t_data *data)
 	{
 		free(data);
 		write(1, "\033[0;101mError: Invalid Arguments\033[0m\n", 39);
-
 		return (-1);
 	}
 	else

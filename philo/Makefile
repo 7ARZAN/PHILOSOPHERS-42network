@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: elakhfif <elakhfif@1337.student.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 11:25:31 by 7arzan            #+#    #+#              #
-#    Updated: 2023/06/01 22:26:25 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/06/04 03:43:34 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ_COMMON = $(SRC_COMMON:.c=.o)
 INCLUDE = ./src/include
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -O3 #-g -fsanitize=thread
 
 NAME = philo
 

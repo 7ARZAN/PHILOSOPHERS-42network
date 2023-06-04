@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:35:09 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/05/28 20:05:53 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/04 04:44:13 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_isdigit(int i)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
+	int		sign;
 	long	res;
-	int	sign;
 
 	i = 0;
 	res = 0;

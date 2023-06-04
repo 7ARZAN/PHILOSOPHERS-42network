@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: elakhfif <elakhfif@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:02:36 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/01 22:21:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/04 04:41:40 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	status(char *msg, t_data *data, int i)
 	pthread_mutex_lock(&data->mutex_write);
 	pthread_mutex_lock(&data->mutex_last_meal);
 	time = get_time() - data->s_time;
-	if (i <= data->number_of_philosophers && check_meals(data) == 0 && data->stat == 0)
+	if (i <= data->number_of_philosophers
+		&& check_meals(data) == 0 && data->stat == 0)
 		printf("\033[1;89m[%ld]	[%d] \033[0;39m%s", time, i, msg);
 	pthread_mutex_unlock(&data->mutex_last_meal);
 	pthread_mutex_unlock(&data->mutex_write);
