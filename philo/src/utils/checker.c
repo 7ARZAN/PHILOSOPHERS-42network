@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/04 05:34:57 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:25:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 int	check_meals(t_data *data)
 {
 	int	i;
-	int	j;
+	int	count;
 
 	i = -1;
-	j = 0;
+	count = 0;
 	if (!data->philo_eats)
 		return (0);
 	while (++i < data->number_of_philosophers)
 	{
 		if (data->philo[i].number_of_meals >= data->philo_eats)
-			j++;
-		break ;
-	}
-	if (j >= data->number_of_philosophers - 1)
-	{
-		data->stat = 2;
-		return (1);
+			count++;
+		if (count == data->number_of_philosophers)
+		{
+			data->stat = 2;
+			return (1);
+		}
 	}
 	return (0);
 }
@@ -79,7 +78,7 @@ void	checker(t_data *data)
 			}
 			pthread_mutex_unlock(&data->mutex_last_meal);
 		}
-		if (data->stat == 1 || data->stat == 2)
+		if (data->stat == 2 || data->stat == 1)
 			break ;
 		i = -1;
 	}
