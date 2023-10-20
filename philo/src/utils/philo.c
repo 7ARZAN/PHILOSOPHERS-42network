@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:03:02 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/24 20:34:17 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:22:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_number_of_args(char *args, int pos, t_data *data)
 		|| (pos == 3 && nofp < 60) || (pos == 4 && nofp < 60))
 	{
 		free(data);
-		write(1, "\033[0;101mError: Invalid Arguments\033[0m\n", 39);
+		write(2, "\033[0;101mError: Invalid Arguments\n \033[0m", 33);
 		return (-1);
 	}
 	else
@@ -42,9 +42,6 @@ int	check_number_of_args(char *args, int pos, t_data *data)
 
 int	simulation(t_data *data)
 {
-	int	i;
-
-	i = 0;
 	pthread_mutex_lock(&data->mutex_last_meal);
 	pthread_mutex_lock(&data->mutex_stat);
 	pthread_mutex_init(&data->mutex_last_meal, NULL);

@@ -6,12 +6,16 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:52:28 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/24 20:32:21 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:10:58 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+//	@brief		:	Check if all philosophers have eaten enough
+//	@param data	:	Structure that contains all the data
+//	@return		:	1 if all philosophers have eaten enough, 0 otherwise
+//	@note		:	Philosopher's number is i + 1 because i starts at 0 !
 int	check_meals(t_data *data)
 {
 	int	i;
@@ -34,11 +38,15 @@ int	check_meals(t_data *data)
 	return (0);
 }
 
+//	@brief		:	Display the status of the philosopher when he dies
 void	print_die(long time, int id)
 {
 	printf("\033[1;89m[%ld]	[%d] \033[1;91mdied ☠️\033[0;39m\n", time, id);
 }
 
+//	@brief		:	clear all mutexes and detach all threads
+//	@pthread_detach	:	detach a thread from the calling thread
+//	@pthread_mutex_destroy	:	destroy a mutex object
 void	cleaner(t_data *data)
 {
 	int	i;
@@ -56,6 +64,10 @@ void	cleaner(t_data *data)
 	}
 }
 
+//	@brief		:	Check if a philosopher is dead
+//	@stat		:	0 if no one is dead, 1 if someone is dead, 2 if everyone
+//				has eaten enough (if the number of meals is specified)
+//	@time		:	Current time minus the start time
 void	checker(t_data *data)
 {
 	long	time;

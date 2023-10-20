@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 05:37:41 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/10/03 15:27:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:04:18 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_data
 	long			s_time;
 }					t_data;
 
-int					death(t_data *data);
 int					main(int ac, char **av);
 int					ft_atoi(const char *str);
 int					check_meals(t_data *data);

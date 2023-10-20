@@ -6,7 +6,7 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:14:07 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/04 04:54:12 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:12:46 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 //1. the function initializes the mutexes and the threads 
 //and the philos and the forks cause of 25 lines of code
-
 void	pthread_init(t_data *data)
 {
 	pthread_mutex_init(&data->mutex_id, NULL);

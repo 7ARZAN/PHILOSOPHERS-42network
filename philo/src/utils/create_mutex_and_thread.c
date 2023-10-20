@@ -6,12 +6,13 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:04:24 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/06/04 04:43:39 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:11:21 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+//	@brief		:	Create mutexes
 int	create_mutex(t_data *data)
 {
 	int	i;
@@ -25,6 +26,7 @@ int	create_mutex(t_data *data)
 	return (0);
 }
 
+//	@brief		:	Create threads
 int	create_thread(t_data *data)
 {
 	int	i;

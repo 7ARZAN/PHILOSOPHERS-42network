@@ -6,12 +6,14 @@
 /*   By: 7arzan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:31:39 by 7arzan            #+#    #+#             */
-/*   Updated: 2023/10/03 14:41:03 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:19:12 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+//	@brief		:	routine of the philosopher
+//routine is the function that will be executed by the thread
 int	routine(t_data *data)
 {
 	int	i;
@@ -35,6 +37,8 @@ int	routine(t_data *data)
 	return (0);
 }
 
+//	@brief		:	Philosopher routine
+//here we create the thread and we call the routine function
 void	*philo_routine(void *f)
 {
 	t_data	*data;
